@@ -5,35 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Услуги Auto Rent - продажа и обслуживание премиальных автомобилей">
     <title>Услуги - Auto Rent</title>
-    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles/main.css"></noscript>
+    
+    <!-- Preload Google Fonts with &display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Critical CSS for above-the-fold content -->
     <style>
-        .services-hero {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.9)),
-                        url('../images/services-bg.jpg') center/cover no-repeat;
-            padding: 180px 0 100px;
-            text-align: center;
-            margin-top: 70px;
+        /* Critical font-face declarations */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'),
+                 url('https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
-
+        
+        /* Fallback font stack */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* Prevent layout shifts */
+        .section-title, h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-display: swap;
+        }
+        
+        /* Critical styles for services page */
+        .services-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 120px 0 80px;
+            overflow: hidden;
+            color: white;
+        }
+        
+        .services-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
         .services-hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--accent-silver), #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 700;
+            margin: 0 0 20px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
         }
-
+        
         .services-hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px;
+            font-size: 1.4rem;
+            margin: 0 0 40px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease 0.2s both;
+            line-height: 1.6;
         }
-
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/Service3.jpg') center/cover no-repeat;
+            z-index: -1;
+        }
+        
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -143,6 +213,16 @@
 
     <main>
         <section class="services-hero">
+            <div class="hero-background">
+                <div style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                "></div>
+            </div>
             <div class="container">
                 <h1>Наши услуги</h1>
                 <p>Комплексные решения для вашего автомобиля от ведущего автоцентра премиум-класса</p>

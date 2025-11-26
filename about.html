@@ -57,10 +57,28 @@
     </header>
 
     <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>О нашем автоцентре</h1>
-                <p>Узнайте больше о нашей компании и команде профессионалов</p>
+        <section class="hero" style="position: relative;">
+            <div class="hero-background" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('images/About.jpg') center/cover no-repeat;
+                z-index: -1;
+            ">
+                <div style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                "></div>
+            </div>
+            <div class="container" style="position: relative; z-index: 1;">
+                <h1 class="hero__title">О нашем автоцентре</h1>
+                <p class="hero__subtitle">Узнайте больше о нашей компании и команде профессионалов</p>
             </div>
         </section>
 

@@ -1,84 +1,124 @@
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
+// Font loading detection
+function checkFontsLoaded() {
+    // Check if fonts are loaded using FontFaceSet API
+    if ('fonts' in document) {
+        Promise.all([
+            document.fonts.load('1em Montserrat'),
+            document.fonts.load('1em Playfair Display')
+        ]).then(() => {
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    } else {
+        // Fallback for browsers that don't support FontFaceSet
+        document.documentElement.classList.add('fonts-loaded');
+    }
+}
 
-if (menuToggle && nav) {
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
+// Mobile menu toggle
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    }
 }
 
 // Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80, // Adjust for fixed header
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-});
+}
 
-// Header scroll effect
-const header = document.querySelector('.header');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+// Smart header behavior on scroll
+function initSmartHeader() {
+    const header = document.querySelector('.header');
+    if (!header) return;
     
-    if (currentScroll <= 0) {
-        header.classList.remove('scroll-up');
-        return;
-    }
+    let lastScroll = 0;
+    let ticking = false;
+    const headerHeight = header.offsetHeight;
+    const scrollThreshold = 50; // Минимальное расстояние прокрутки для срабатывания
     
-    if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-        // Scroll down
-        header.classList.remove('scroll-up');
-        header.classList.add('scroll-down');
-    } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-        // Scroll up
-        header.classList.remove('scroll-down');
-        header.classList.add('scroll-up');
-    }
-    
-    lastScroll = currentScroll;
-});
-
-// Animation on scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.feature, .section-title');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+    // Функция для обновления состояния шапки
+    const updateHeader = () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
         
-        if (elementTop < windowHeight - 100) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
+        // Добавляем класс при скролле
+        if (currentScroll > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
-    });
-};
-
-// Initialize animations
-document.addEventListener('DOMContentLoaded', () => {
-    // Add animation classes
-    const features = document.querySelectorAll('.feature');
-    features.forEach((feature, index) => {
-        feature.style.opacity = '0';
-        feature.style.transform = 'translateY(30px)';
-        feature.style.transition = `opacity 0.5s ease ${index * 0.2}s, transform 0.5s ease ${index * 0.2}s`;
-    });
+        
+        // Определяем направление скролла
+        const isScrollingDown = currentScroll > lastScroll && currentScroll > headerHeight;
+        const isAtTop = currentScroll <= 0;
+        
+        // Управляем видимостью шапки
+        if (isAtTop) {
+            // В самом верху страницы всегда показываем шапку
+            header.classList.remove('hide');
+            header.classList.add('show');
+        } else if (isScrollingDown && header.classList.contains('show')) {
+            // Прокрутка вниз - скрываем шапку
+            header.classList.remove('show');
+            header.classList.add('hide');
+        } else if (!isScrollingDown && header.classList.contains('hide')) {
+            // Прокрутка вверх - показываем шапку
+            header.classList.remove('hide');
+            header.classList.add('show');
+        }
+        
+        lastScroll = currentScroll;
+        ticking = false;
+    };
     
-    // Initial check for elements in viewport
-    setTimeout(animateOnScroll, 500);
-});
+    // Оптимизация производительности с помощью requestAnimationFrame
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    // Инициализация при загрузке
+    updateHeader();
+}
 
-// Listen for scroll events
-window.addEventListener('scroll', animateOnScroll);
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    checkFontsLoaded();
+    initMobileMenu();
+    initSmoothScrolling();
+    initSmartHeader();
+    
+    // Add fonts-loaded class to body for better font loading handling
+    if ('fonts' in document) {
+        document.fonts.ready.then(() => {
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    } else {
+        // Fallback for browsers that don't support FontFaceSet
+        document.documentElement.classList.add('fonts-loaded');
+    }
+});
 
 // Form validation for contact form
 const contactForm = document.getElementById('contact-form');
