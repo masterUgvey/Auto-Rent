@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог премиальных автомобилей Auto Rent - новые и с пробегом">
+    <title>Автомобили - Auto Rent</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        .cars-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.9)),
+                        url('../images/cars-bg.jpg') center/cover no-repeat;
+            padding: 180px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .cars-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-silver), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cars-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-blue), #2c5282);
+            border-color: transparent;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .car-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .car-image {
+            height: 200px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .car-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .car-details {
+            padding: 20px;
+        }
+
+        .car-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-silver);
+        }
+
+        .car-specs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .car-spec {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 15px 0;
+        }
+
+        .btn-details {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--accent-blue), #2c5282);
+            color: white;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-details:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.4);
+        }
+
+        @media (max-width: 767px) {
+            .cars-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                margin: 20px -15px;
+                padding: 0 15px 10px;
+            }
+            
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">Auto Rent</a>
+                <nav class="nav">
+                    <a href="index.html" class="nav__link">Главная</a>
+                    <a href="about.html" class="nav__link">О нас</a>
+                    <a href="services.html" class="nav__link">Услуги</a>
+                    <a href="cars.html" class="nav__link active">Автомобили</a>
+                    <a href="contacts.html" class="nav__link">Контакты</a>
+                </nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="cars-hero">
+            <div class="container">
+                <h1>Каталог автомобилей</h1>
+                <p>Премиальные автомобили в наличии от ведущих мировых производителей</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="new">Новые</button>
+                <button class="filter-btn" data-filter="used">С пробегом</button>
+                <button class="filter-btn" data-filter="premium">Премиум</button>
+            </div>
+
+            <div class="cars-grid">
+                <!-- BMW 5 Series -->
+                <div class="car-card" data-category="new premium">
+                    <div class="car-image">
+                        <span>BMW 5 Series 2023</span>
+                        <span class="car-badge">Новый</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-title">BMW 5 Series</h3>
+                        <div class="car-specs">
+                            <span class="car-spec">2023</span>
+                            <span class="car-spec">Автомат</span>
+                            <span class="car-spec">3.0 л</span>
+                        </div>
+                        <div class="car-price">8 500 000 ₽</div>
+                        <a href="#" class="btn-details">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Mercedes-Benz E-Class -->
+                <div class="car-card" data-category="used premium">
+                    <div class="car-image">
+                        <span>Mercedes-Benz E-Class 2022</span>
+                        <span class="car-badge">С пробегом</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-title">Mercedes-Benz E-Class</h3>
+                        <div class="car-specs">
+                            <span class="car-spec">2022</span>
+                            <span class="car-spec">Автомат</span>
+                            <span class="car-spec">25 000 км</span>
+                        </div>
+                        <div class="car-price">7 200 000 ₽</div>
+                        <a href="#" class="btn-details">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Audi A6 -->
+                <div class="car-card" data-category="new premium">
+                    <div class="car-image">
+                        <span>Audi A6 2023</span>
+                        <span class="car-badge">Новый</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-title">Audi A6</h3>
+                        <div class="car-specs">
+                            <span class="car-spec">2023</span>
+                            <span class="car-spec">Автомат</span>
+                            <span class="car-spec">3.0 л</span>
+                        </div>
+                        <div class="car-price">6 800 000 ₽</div>
+                        <a href="#" class="btn-details">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Porsche Panamera -->
+                <div class="car-card" data-category="used premium">
+                    <div class="car-image">
+                        <span>Porsche Panamera 2021</span>
+                        <span class="car-badge">Премиум</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-title">Porsche Panamera</h3>
+                        <div class="car-specs">
+                            <span class="car-spec">2021</span>
+                            <span class="car-spec">Автомат</span>
+                            <span class="car-spec">42 000 км</span>
+                        </div>
+                        <div class="car-price">12 500 000 ₽</div>
+                        <a href="#" class="btn-details">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- Lexus ES -->
+                <div class="car-card" data-category="new">
+                    <div class="car-image">
+                        <span>Lexus ES 2023</span>
+                        <span class="car-badge">Новый</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-title">Lexus ES</h3>
+                        <div class="car-specs">
+                            <span class="car-spec">2023</span>
+                            <span class="car-spec">Автомат</span>
+                            <span class="car-spec">2.5 л</span>
+                        </div>
+                        <div class="car-price">5 900 000 ₽</div>
+                        <a href="#" class="btn-details">Подробнее</a>
+                    </div>
+                </div>
+
+                <!-- BMW X5 -->
+                <div class="car-card" data-category="used premium">
+                    <div class="car-image">
+                        <span>BMW X5 2022</span>
+                        <span class="car-badge">Премиум</span>
+                    </div>
+                    <div class="car-details">
+                        <h3 class="car-title">BMW X5</h3>
+                        <div class="car-specs">
+                            <span class="car-spec">2022</span>
+                            <span class="car-spec">Автомат</span>
+                            <span class="car-spec">18 000 км</span>
+                        </div>
+                        <div class="car-price">9 100 000 ₽</div>
+                        <a href="#" class="btn-details">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits" style="background-color: var(--secondary-bg); padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="features__grid" style="margin-top: 50px;">
+                    <div class="feature">
+                        <div class="feature__icon">🏆</div>
+                        <h3 class="feature__title">Гарантия качества</h3>
+                        <p class="feature__text">Все автомобили проходят тщательную проверку</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">🔧</div>
+                        <h3 class="feature__title">Сервисное обслуживание</h3>
+                        <p class="feature__text">Собственный сервисный центр с опытными мастерами</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">💳</div>
+                        <h3 class="feature__title">Выгодные условия</h3>
+                        <p class="feature__text">Гибкая система скидок и специальные предложения</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <div class="footer__logo">Auto Rent</div>
+                    <p class="footer__text">Премиальный автомобильный центр</p>
+                </div>
+                <div class="footer__contacts">
+                    <h3 class="footer__title">Контакты</h3>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@autorent.ru</p>
+                    <p>Адрес: г. Москва, ул. Автозаводская, 23</p>
+                </div>
+                <div class="footer__social">
+                    <h3 class="footer__title">Мы в соцсетях</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">VK</a>
+                        <a href="#" class="social-link">TG</a>
+                        <a href="#" class="social-link">YT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Auto Rent. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Фильтрация автомобилей
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const carCards = document.querySelectorAll('.car-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Удаляем активный класс у всех кнопок
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Добавляем активный класс к нажатой кнопке
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    carCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+```__

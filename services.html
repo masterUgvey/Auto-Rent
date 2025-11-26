@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Услуги Auto Rent - продажа и обслуживание премиальных автомобилей">
+    <title>Услуги - Auto Rent</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        .services-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.9)),
+                        url('../images/services-bg.jpg') center/cover no-repeat;
+            padding: 180px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .services-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-silver), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px 30px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            color: var(--accent-silver);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .process-steps {
+            padding: 80px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-blue), #2c5282);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 767px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 50px 0;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">Auto Rent</a>
+                <nav class="nav">
+                    <a href="index.html" class="nav__link">Главная</a>
+                    <a href="about.html" class="nav__link">О нас</a>
+                    <a href="services.html" class="nav__link active">Услуги</a>
+                    <a href="cars.html" class="nav__link">Автомобили</a>
+                    <a href="contacts.html" class="nav__link">Контакты</a>
+                </nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="services-hero">
+            <div class="container">
+                <h1>Наши услуги</h1>
+                <p>Комплексные решения для вашего автомобиля от ведущего автоцентра премиум-класса</p>
+            </div>
+        </section>
+
+        <section id="services" class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Продажа новых автомобилей</h3>
+                    <p>Официальный дилер ведущих мировых брендов. Широкий выбор новых автомобилей премиум-класса с полной гарантией производителя.</p>
+                    <a href="#" class="btn btn--outline">Подробнее</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Авто с пробегом</h3>
+                    <p>Тщательно проверенные автомобили с пробегом от официальных дилеров. Полная история обслуживания и гарантия качества.</p>
+                    <a href="#" class="btn btn--outline">Подробнее</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Техническое обслуживание</h3>
+                    <p>Профессиональное ТО с использованием оригинальных запчастей. Официальный сервис с гарантией на все виды работ.</p>
+                    <a href="#" class="btn btn--outline">Подробнее</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Ремонт и диагностика</h3>
+                    <p>Качественный ремонт любой сложности. Современное диагностическое оборудование и опытные мастера.</p>
+                    <a href="#" class="btn btn--outline">Подробнее</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚘</div>
+                    <h3>Аренда премиальных авто</h3>
+                    <p>Широкий выбор премиальных автомобилей для аренды. Идеальное решение для деловых поездок и особых случаев.</p>
+                    <a href="#" class="btn btn--outline">Подробнее</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏆</div>
+                    <h3>Дополнительные услуги</h3>
+                    <p>Трейд-ин, страхование, лизинг и другие дополнительные услуги для вашего комфорта и выгоды.</p>
+                    <a href="#" class="btn btn--outline">Подробнее</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-steps">
+            <div class="container">
+                <h2 class="section-title">Как мы работаем</h2>
+                <p class="section-subtitle">Простой и прозрачный процесс сотрудничества</p>
+                
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Консультация</h3>
+                        <p>Наши специалисты помогут с выбором автомобиля или услуги</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Оформление</h3>
+                        <p>Быстрое и прозрачное оформление всех документов</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Обслуживание</h3>
+                        <p>Профессиональное обслуживание на всех этапах</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Гарантия</h3>
+                        <p>Полное сопровождение и гарантия качества</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <div class="footer__logo">Auto Rent</div>
+                    <p class="footer__text">Премиальный автомобильный центр</p>
+                </div>
+                <div class="footer__contacts">
+                    <h3 class="footer__title">Контакты</h3>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@autorent.ru</p>
+                    <p>Адрес: г. Москва, ул. Автозаводская, 23</p>
+                </div>
+                <div class="footer__social">
+                    <h3 class="footer__title">Мы в соцсетях</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">VK</a>
+                        <a href="#" class="social-link">TG</a>
+                        <a href="#" class="social-link">YT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Auto Rent. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+```__
