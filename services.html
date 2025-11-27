@@ -237,21 +237,21 @@
                     <div class="service-icon">⚙️</div>
                     <h3>Техническое обслуживание</h3>
                     <p>Профессиональное ТО с использованием оригинальных запчастей. Официальный сервис с гарантией на все виды работ.</p>
-                    <a href="#" class="btn btn--outline">Подробнее</a>
+                    <a href="maintenance.html" class="btn btn--outline service-btn" data-service="maintenance">Подробнее</a>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">🚘</div>
                     <h3>Аренда премиальных авто</h3>
                     <p>Широкий выбор премиальных автомобилей для аренды. Идеальное решение для деловых поездок и особых случаев.</p>
-                    <a href="#" class="btn btn--outline">Подробнее</a>
+                    <a href="cars.html" class="btn btn--outline service-btn" data-service="cars">Подробнее</a>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">🏆</div>
                     <h3>Дополнительные услуги</h3>
                     <p>Трейд-ин, страхование, лизинг и другие дополнительные услуги для вашего комфорта и выгоды.</p>
-                    <a href="#" class="btn btn--outline">Подробнее</a>
+                    <a href="contacts.html" class="btn btn--outline service-btn" data-service="contacts">Подробнее</a>
                 </div>
             </div>
         </section>
@@ -315,7 +315,51 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Обработчики для кнопок "Подробнее"
+            document.querySelectorAll('.service-btn').forEach(button => {
+                // Добавляем стили для кнопок
+                button.style.cursor = 'pointer';
+                button.style.transition = 'all 0.3s ease';
+                
+                // Эффект при наведении
+                button.addEventListener('mouseenter', () => {
+                    button.style.transform = 'translateY(-2px)';
+                    button.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+                });
+                
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'translateY(0)';
+                    button.style.boxShadow = 'none';
+                });
+                
+                // Эффект нажатия
+                button.addEventListener('mousedown', () => {
+                    button.style.transform = 'translateY(1px)';
+                });
+                
+                button.addEventListener('mouseup', () => {
+                    button.style.transform = 'translateY(-2px)';
+                });
+                
+                // Обработка клика
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetUrl = button.getAttribute('href');
+                    if (targetUrl) {
+                        // Добавляем анимацию перехода
+                        button.style.transform = 'scale(0.95)';
+                        button.style.opacity = '0.8';
+                        
+                        // Задержка для анимации
+                        setTimeout(() => {
+                            window.location.href = targetUrl;
+                        }, 150);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-```__

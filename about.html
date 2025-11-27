@@ -306,6 +306,38 @@
                     closeTeamModal();
                 }
             });
+
+            // Обработчики для карточек услуг
+            document.querySelectorAll('.features__grid .feature').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetUrl = card.getAttribute('href');
+                    if (targetUrl) {
+                        window.location.href = targetUrl;
+                    }
+                });
+
+                // Добавляем стиль курсора при наведении
+                card.style.cursor = 'pointer';
+                
+                // Эффект нажатия
+                card.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+                
+                card.addEventListener('mousedown', () => {
+                    card.style.transform = 'scale(0.98)';
+                    card.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                });
+                
+                card.addEventListener('mouseup', () => {
+                    card.style.transform = 'scale(1)';
+                    card.style.boxShadow = '';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'scale(1)';
+                    card.style.boxShadow = '';
+                });
+            });
         });
     </script>
 </body>

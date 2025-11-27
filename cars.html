@@ -128,7 +128,8 @@
 
         .car-specs {
             display: flex;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 15px;
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -137,7 +138,6 @@
         .car-spec {
             display: flex;
             align-items: center;
-            gap: 5px;
         }
 
         .car-price {
@@ -226,118 +226,119 @@
             </div>
             <div class="container">
                 <h1>Каталог автомобилей</h1>
-                <p>Премиальные автомобили в наличии от ведущих мировых производителей</p>
+                <p>Широкий выбор премиальных автомобилей различных типов кузова</p>
             </div>
         </section>
 
         <section class="container">
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">Все</button>
-                <button class="filter-btn" data-filter="new">Новые</button>
-                <button class="filter-btn" data-filter="used">С пробегом</button>
-                <button class="filter-btn" data-filter="premium">Премиум</button>
+                <button class="filter-btn" data-filter="sedan">Седаны</button>
+                <button class="filter-btn" data-filter="suv">Внедорожники</button>
+                <button class="filter-btn" data-filter="coupe">Купе</button>
+                <button class="filter-btn" data-filter="estate">Универсалы</button>
             </div>
 
             <div class="cars-grid">
                 <!-- BMW 5 Series -->
-                <div class="car-card" data-category="new premium">
+                <div class="car-card" data-category="sedan premium" data-car-id="bmw-m5">
                     <div class="car-image" style="background: url('images/CatalogCars/bmw5.jpg') center/cover no-repeat;">
-                        <span class="car-badge">Новый</span>
                     </div>
                     <div class="car-details">
                         <h3 class="car-title">BMW M5 Series</h3>
                         <div class="car-specs">
                             <span class="car-spec">2023</span>
                             <span class="car-spec">Автомат</span>
-                            <span class="car-spec">4.4 л</span>
+                            <span class="car-spec">4.4 л V8</span>
+                            <span class="car-spec">625 л.с.</span>
                         </div>
-                        <div class="car-price">8 500 000 ₽</div>
-                        <a href="#" class="btn-details">Подробнее</a>
+                        <div class="car-price">15 000 ₽/час</div>
+                        <button type="button" class="btn-details" onclick="event.preventDefault();">Подробнее</button>
                     </div>
                 </div>
 
                 <!-- Mercedes-Benz E-Class -->
-                <div class="car-card" data-category="used premium">
+                <div class="car-card" data-category="sedan premium" data-car-id="mercedes-e">
                     <div class="car-image" style="background: url('images/CatalogCars/mercedes.jpg') center/cover no-repeat;">
-                        <span class="car-badge">С пробегом</span>
                     </div>
                     <div class="car-details">
                         <h3 class="car-title">Mercedes-Benz E-Class</h3>
                         <div class="car-specs">
                             <span class="car-spec">2022</span>
                             <span class="car-spec">Автомат</span>
-                            <span class="car-spec">25 000 км</span>
+                            <span class="car-spec">3.0 л V6</span>
+                            <span class="car-spec">367 л.с.</span>
                         </div>
-                        <div class="car-price">7 200 000 ₽</div>
-                        <a href="#" class="btn-details">Подробнее</a>
+                        <div class="car-price">12 500 ₽/час</div>
+                        <button type="button" class="btn-details" onclick="event.preventDefault();">Подробнее</button>
                     </div>
                 </div>
 
-                <!-- Audi A6 -->
-                <div class="car-card" data-category="new premium">
+                <!-- Audi RS6 -->
+                <div class="car-card" data-category="estate premium" data-car-id="audi-rs6">
                     <div class="car-image" style="background: url('images/CatalogCars/audi.jpg') center/cover no-repeat;">
-                        <span class="car-badge">Новый</span>
                     </div>
                     <div class="car-details">
                         <h3 class="car-title">Audi RS6</h3>
                         <div class="car-specs">
                             <span class="car-spec">2023</span>
                             <span class="car-spec">Автомат</span>
-                            <span class="car-spec">4.0 л</span>
+                            <span class="car-spec">4.0 л V8</span>
+                            <span class="car-spec">600 л.с.</span>
                         </div>
-                        <div class="car-price">6 800 000 ₽</div>
-                        <a href="#" class="btn-details">Подробнее</a>
+                        <div class="car-price">14 000 ₽/час</div>
+                        <button type="button" class="btn-details" onclick="event.preventDefault();">Подробнее</button>
                     </div>
                 </div>
 
                 <!-- Porsche Panamera -->
-                <div class="car-card" data-category="used premium">
+                <div class="car-card" data-category="sedan premium" data-car-id="porsche-panamera">
                     <div class="car-image" style="background: url('images/CatalogCars/porsche.jpg') center/cover no-repeat;">
-                        <span class="car-badge">Премиум</span>
                     </div>
                     <div class="car-details">
                         <h3 class="car-title">Porsche Panamera</h3>
                         <div class="car-specs">
                             <span class="car-spec">2021</span>
                             <span class="car-spec">Автомат</span>
-                            <span class="car-spec">42 000 км</span>
+                            <span class="car-spec">2.9 л V6</span>
+                            <span class="car-spec">440 л.с.</span>
                         </div>
-                        <div class="car-price">12 500 000 ₽</div>
-                        <a href="#" class="btn-details">Подробнее</a>
+                        <div class="car-price">18 000 ₽/час</div>
+                        <button type="button" class="btn-details" onclick="event.preventDefault();">Подробнее</button>
                     </div>
                 </div>
 
                 <!-- Lexus ES -->
-                <div class="car-card" data-category="new">
+                <div class="car-card" data-category="sedan" data-car-id="lexus-es">
                     <div class="car-image" style="background: url('images/CatalogCars/lexus.jpg') center/cover no-repeat;">
-                        <span class="car-badge">Новый</span>
                     </div>
                     <div class="car-details">
                         <h3 class="car-title">Lexus ES</h3>
                         <div class="car-specs">
                             <span class="car-spec">2023</span>
                             <span class="car-spec">Автомат</span>
-                            <span class="car-spec">2.5 л</span>
+                            <span class="car-spec">2.5 л V6</span>
+                            <span class="car-spec">203 л.с.</span>
                         </div>
-                        <div class="car-price">5 900 000 ₽</div>
-                        <a href="#" class="btn-details">Подробнее</a>
+                        <div class="car-price">10 000 ₽/час</div>
+                        <button type="button" class="btn-details" onclick="event.preventDefault();">Подробнее</button>
                     </div>
                 </div>
 
                 <!-- BMW X5 -->
-                <div class="car-card" data-category="used premium">
+                <div class="car-card" data-category="suv premium" data-car-id="bmw-x5">
                     <div class="car-image" style="background: url('images/CatalogCars/bmwx5.jpg') center/cover no-repeat;">
-                        <span class="car-badge">Премиум</span>
                     </div>
                     <div class="car-details">
-                        <h3 class="car-title">BMW X5</h3>
+                        <h3 class="car-title">BMW X5 M</h3>
                         <div class="car-specs">
                             <span class="car-spec">2022</span>
                             <span class="car-spec">Автомат</span>
-                            <span class="car-spec">18 000 км</span>
+                            <span class="car-spec">4.4 л V8</span>
+                            <span class="car-spec">625 л.с.</span>
                         </div>
-                        <div class="car-price">9 100 000 ₽</div>
-                        <a href="#" class="btn-details">Подробнее</a>
+                        <div class="car-price">20 000 ₽/час</div>
+                        <button type="button" class="btn-details" onclick="event.preventDefault();">Подробнее</button>
                     </div>
                 </div>
             </div>
@@ -350,7 +351,7 @@
                     <div class="feature">
                         <div class="feature__icon">🏆</div>
                         <h3 class="feature__title">Гарантия качества</h3>
-                        <p class="feature__text">Все автомобили проходят тщательную проверку</p>
+                        <p class="feature__text">Все автомобили проходят тщательную проверку перед каждым прокатом</p>
                     </div>
                     <div class="feature">
                         <div class="feature__icon">🔧</div>
@@ -360,7 +361,7 @@
                     <div class="feature">
                         <div class="feature__icon">💳</div>
                         <h3 class="feature__title">Выгодные условия</h3>
-                        <p class="feature__text">Гибкая система скидок и специальные предложения</p>
+                        <p class="feature__text">Специальные тарифы при аренде от 3 часов и более</p>
                     </div>
                 </div>
             </div>
@@ -421,7 +422,311 @@
             });
         });
     </script>
+
+    <script>
+        // Данные об автомобилях
+        const carsData = {
+            'bmw-m5': {
+                title: 'BMW M5 Series',
+                price: '15 000 ₽/час',
+                year: '2023',
+                transmission: 'Автомат',
+                engine: '4.4 л V8',
+                power: '625 л.с.',
+                fuel: 'Бензин',
+                drive: 'Полный',
+                color: 'Синий металлик',
+                description: 'BMW M5 Series сочетает в себе спортивные характеристики и премиальный комфорт. Идеальный выбор для тех, кто ценит динамику и стиль.',
+                features: [
+                    'Кожаный салон',
+                    'Панорамная крыша',
+                    'Камера 360°',
+                    'Адаптивный круиз-контроль',
+                    'Подогрев сидений и руля',
+                    'Цифровая приборная панель'
+                ],
+                images: [
+                    'images/CatalogCars/bmw5.jpg',
+                    'images/CatalogCars/bmw5-2.jpg',
+                    'images/CatalogCars/bmw5-3.jpg'
+                ]
+            },
+            'mercedes-e': {
+                title: 'Mercedes-Benz E-Class',
+                price: '12 500 ₽/час',
+                year: '2022',
+                transmission: 'Автомат',
+                engine: '3.0 л V6',
+                power: '367 л.с.',
+                fuel: 'Дизель',
+                drive: 'Задний',
+                color: 'Черный',
+                description: 'Mercedes-Benz E-Class - это эталон бизнес-класса, сочетающий в себе элегантный дизайн, передовые технологии и непревзойденный комфорт.',
+                features: [
+                    'Кожаный салон',
+                    'Двухзонный климат-контроль',
+                    'Мультимедиа с навигацией',
+                    'Камера заднего вида',
+                    'Парктроник',
+                    'Светодиодные фары'
+                ],
+                images: [
+                    'images/CatalogCars/mercedes.jpg'
+                ]
+            },
+            'audi-rs6': {
+                title: 'Audi RS6',
+                price: '14 000 ₽/час',
+                year: '2023',
+                transmission: 'Автомат',
+                engine: '4.0 л V8',
+                power: '600 л.с.',
+                fuel: 'Бензин',
+                drive: 'Полный',
+                color: 'Серый металлик',
+                description: 'Audi RS6 - это спортивный универсал с характером спорткара. Сочетание мощности, практичности и яркого дизайна.',
+                features: [
+                    'Спортивная подвеска',
+                    'Кожаный салон с отделкой карбоном',
+                    'Аудиосистема Bang & Olufsen',
+                    'Вентилируемые сиденья',
+                    'Цифровая приборная панель',
+                    'Массажные кресла'
+                ],
+                images: [
+                    'images/CatalogCars/audi.jpg'
+                ]
+            },
+            'porsche-panamera': {
+                title: 'Porsche Panamera',
+                price: '18 000 ₽/час',
+                year: '2021',
+                transmission: 'Автомат',
+                engine: '2.9 л V6',
+                power: '440 л.с.',
+                fuel: 'Бензин',
+                drive: 'Полный',
+                color: 'Красный',
+                description: 'Porsche Panamera - это спорткар для всей семьи. Уникальное сочетание динамики, комфорта и престижа.',
+                features: [
+                    'Кожаный салон',
+                    'Панорамная крыша',
+                    'Спортивная выхлопная система',
+                    'Аудиосистема Bose',
+                    'Вентилируемые сиденья',
+                    'Память настроек сидений и зеркал'
+                ],
+                images: [
+                    'images/CatalogCars/porsche.jpg'
+                ]
+            },
+            'lexus-es': {
+                title: 'Lexus ES',
+                price: '10 000 ₽/час',
+                year: '2023',
+                transmission: 'Автомат',
+                engine: '2.5 л V6',
+                power: '203 л.с.',
+                fuel: 'Гибрид',
+                drive: 'Передний',
+                color: 'Белый перламутр',
+                description: 'Lexus ES - это эталон надежности и комфорта в премиальном сегменте. Идеальный выбор для деловых поездок.',
+                features: [
+                    'Кожаный салон',
+                    'Двухзонный климат-контроль',
+                    'Мультимедиа с навигацией',
+                    'Камера заднего вида',
+                    'Беспроводная зарядка',
+                    'Подогрев и вентиляция сидений'
+                ],
+                images: [
+                    'images/CatalogCars/lexus.jpg'
+                ]
+            },
+            'bmw-x5': {
+                title: 'BMW X5 M',
+                price: '20 000 ₽/час',
+                year: '2022',
+                transmission: 'Автомат',
+                engine: '4.4 л V8',
+                power: '625 л.с.',
+                fuel: 'Бензин',
+                drive: 'Полный',
+                color: 'Черный сапфир',
+                description: 'BMW X5 M - это мощный и стильный внедорожник с характером спортивного автомобиля. Идеален как для города, так и для бездорожья.',
+                features: [
+                    'Кожаный салон Merino',
+                    'Панорамная крыша',
+                    'Аудиосистема Harman Kardon',
+                    'Парковочный ассистент',
+                    'Обогрев всех сидений',
+                    'Проекционный дисплей'
+                ],
+                images: [
+                    'images/CatalogCars/bmwx5.jpg'
+                ]
+            }
+        };
+
+        // Инициализация модального окна
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('carModal');
+            const modalClose = modal.querySelector('.modal-close');
+            const modalContent = modal.querySelector('.modal-content');
+            const modalTitle = modal.querySelector('.modal-car-title');
+            const modalPrice = modal.querySelector('.car-price-lg');
+            const modalSpecs = modal.querySelector('.car-specs-modal');
+            const modalDescription = modal.querySelector('.car-description');
+            const modalFeatures = modal.querySelector('.features-list');
+            const modalPhoto = modal.querySelector('.modal-photo');
+            const carGallery = modal.querySelector('.car-gallery');
+            const btnRent = modal.querySelector('.btn-rent');
+
+            // Обработчик клика по кнопке "Подробнее"
+            document.querySelectorAll('.btn-details').forEach((btn, index) => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const carCard = this.closest('.car-card');
+                    const carId = carCard.getAttribute('data-car-id') || 
+                                 carCard.querySelector('h3').textContent.toLowerCase().replace(/\s+/g, '-').replace('series', '').trim();
+                    
+                    const carData = carsData[carId];
+                    
+                    if (carData) {
+                        // Заполняем модальное окно данными
+                        modalTitle.textContent = carData.title;
+                        modalPrice.textContent = carData.price;
+                        
+                        // Спецификации
+                        modalSpecs.innerHTML = `
+                            <div class="spec-item">
+                                <span class="spec-label">Год выпуска:</span>
+                                <span class="spec-value">${carData.year}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Двигатель:</span>
+                                <span class="spec-value">${carData.engine}, ${carData.power}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Коробка передач:</span>
+                                <span class="spec-value">${carData.transmission}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Привод:</span>
+                                <span class="spec-value">${carData.drive}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Топливо:</span>
+                                <span class="spec-value">${carData.fuel}</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Цвет:</span>
+                                <span class="spec-value">${carData.color}</span>
+                            </div>
+                        `;
+                        
+                        // Описание
+                        modalDescription.textContent = carData.description;
+                        
+                        // Особенности
+                        modalFeatures.innerHTML = carData.features.map(feature => 
+                            `<li>${feature}</li>`
+                        ).join('');
+                        
+                        // Галерея
+                        carGallery.innerHTML = '';
+                        carData.images.forEach((imgSrc, imgIndex) => {
+                            const img = document.createElement('img');
+                            img.src = imgSrc;
+                            img.alt = carData.title;
+                            img.loading = 'lazy';
+                            img.addEventListener('click', () => {
+                                modalPhoto.src = imgSrc;
+                                carGallery.querySelectorAll('img').forEach(i => i.classList.remove('active'));
+                                img.classList.add('active');
+                            });
+                            if (imgIndex === 0) img.classList.add('active');
+                            carGallery.appendChild(img);
+                        });
+                        
+                        // Устанавливаем первое изображение
+                        if (carData.images.length > 0) {
+                            modalPhoto.src = carData.images[0];
+                            modalPhoto.alt = carData.title;
+                        }
+                        
+                        // Показываем модальное окно
+                        document.body.style.overflow = 'hidden';
+                        modal.style.display = 'flex';
+                        setTimeout(() => {
+                            modal.classList.add('active');
+                        }, 10);
+                    }
+                });
+            });
+
+            // Закрытие модального окна
+            function closeModal() {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+
+            // Обработчики закрытия
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+            
+            // Закрытие по ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+            
+            // Кнопка аренды
+            btnRent.addEventListener('click', function() {
+                const carName = modalTitle.textContent;
+                alert(`Спасибо за интерес к автомобилю ${carName}! Наш менеджер свяжется с вами для уточнения деталей аренды.`);
+                closeModal();
+            });
+        });
+    </script>
+    <!-- Модальное окно деталей автомобиля -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-photo-container">
+                    <img src="" alt="" class="modal-photo">
+                    <div class="car-gallery"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 class="modal-car-title"></h2>
+                    <div class="car-price-lg"></div>
+                    
+                    <div class="car-specs-modal">
+                        <!-- Спецификации будут добавлены через JavaScript -->
+                    </div>
+                    
+                    <div class="car-description"></div>
+                    
+                    <div class="car-features">
+                        <h4>Особенности</h4>
+                        <ul class="features-list">
+                            <!-- Особенности будут добавлены через JavaScript -->
+                        </ul>
+                    </div>
+                    
+                    <button type="button" class="btn-rent">Арендовать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
 </body>
 </html>
-```__
