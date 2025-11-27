@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Техническое обслуживание автомобилей в Auto Rent - профессиональный сервис для вашего авто">
+    <title>Техническое обслуживание - Auto Rent</title>
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles/main.css"></noscript>
+    
+    <!-- Preload Google Fonts with &display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/redketchup/favicon-16x16.png" type="image/png" sizes="16x16">
+    
+    <style>
+        /* Critical styles */
+        .maintenance-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 120px 0 80px;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .maintenance-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .maintenance-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0 0 20px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .maintenance-hero p {
+            font-size: 1.4rem;
+            margin: 0 0 40px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            line-height: 1.6;
+        }
+        
+        .maintenance-content {
+            padding: 80px 0;
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            justify-content: center;
+        }
+        
+        .service-feature {
+            background: var(--secondary-bg);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .service-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.2), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+            border-radius: 15px;
+        }
+        
+        .service-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(30, 58, 138, 0.3);
+        }
+        
+        .service-feature:hover::before {
+            opacity: 0.1;
+        }
+        
+        .service-feature h3 {
+            color: var(--accent-silver);
+            margin: 20px 0 15px;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+        
+        .service-feature:hover h3 {
+            color: var(--accent-blue);
+        }
+        
+        .service-feature p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin: 0 auto 20px;
+            display: block;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-feature:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 767px) {
+            .maintenance-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">Auto Rent</a>
+                <nav class="nav">
+                    <a href="index.html" class="nav__link">Главная</a>
+                    <a href="about.html" class="nav__link">О нас</a>
+                    <a href="services.html" class="nav__link">Услуги</a>
+                    <a href="maintenance.html" class="nav__link active">Техобслуживание</a>
+                    <a href="cars.html" class="nav__link">Автомобили</a>
+                    <a href="contacts.html" class="nav__link">Контакты</a>
+                </nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="maintenance-hero">
+            <div class="hero-background">
+                <div style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                "></div>
+            </div>
+            <div class="container">
+                <h1>Техническое обслуживание</h1>
+                <p>Профессиональный уход за вашим автомобилем от ведущих специалистов</p>
+                <a href="#contact" class="btn btn--primary">Записаться на сервис</a>
+            </div>
+        </section>
+
+        <section class="maintenance-content container">
+            <h2 class="section-title">Комплексное обслуживание автомобилей</h2>
+            <p>Наш автосервис предлагает полный спектр услуг по техническому обслуживанию автомобилей любых марок. Мы используем только оригинальные запчасти и современное диагностическое оборудование.</p>
+            
+            <div class="service-features">
+                <div class="service-feature">
+                    <div class="service-icon">🔧</div>
+                    <h3>Плановое ТО</h3>
+                    <p>Регулярное техническое обслуживание согласно регламенту производителя для поддержания автомобиля в идеальном состоянии.</p>
+                </div>
+                
+                <div class="service-feature">
+                    <div class="service-icon">🔍</div>
+                    <h3>Компьютерная диагностика</h3>
+                    <p>Точное выявление неисправностей с помощью современного диагностического оборудования.</p>
+                </div>
+                
+                <div class="service-feature">
+                    <div class="service-icon">⚡</div>
+                    <h3>Ремонт ходовой части</h3>
+                    <p>Качественный ремонт и замена изношенных деталей подвески и рулевого управления.</p>
+                </div>
+                
+                <div class="service-feature">
+                    <div class="service-icon">🔋</div>
+                    <h3>Обслуживание АКБ и электроники</h3>
+                    <p>Проверка и восстановление работы аккумулятора и электронных систем автомобиля.</p>
+                </div>
+                
+                <div class="service-feature">
+                    <div class="service-icon">🛢️</div>
+                    <h3>Замена технических жидкостей</h3>
+                    <p>Своевременная замена масла, тормозной жидкости, антифриза и других расходных материалов.</p>
+                </div>
+                
+                <div class="service-feature">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Гарантия на работы</h3>
+                    <p>На все виды работ предоставляется официальная гарантия от нашего автосервиса.</p>
+                </div>
+            </div>
+            
+            <div class="cta-section" style="margin-top: 60px; text-align: center;">
+                <h2>Запишитесь на обслуживание</h2>
+                <p>Оставьте заявку, и наш менеджер свяжется с вами для уточнения деталей</p>
+                <a href="contacts.html" class="btn btn--primary">Оставить заявку</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <div class="footer__logo">Auto Rent</div>
+                    <p class="footer__text">Премиальный автомобильный центр</p>
+                </div>
+                <div class="footer__contacts">
+                    <h3 class="footer__title">Контакты</h3>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@autorent.ru</p>
+                    <p>Адрес: г. Москва, ул. Автозаводская, 23</p>
+                </div>
+                <div class="footer__social">
+                    <h3 class="footer__title">Мы в соцсетях</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">VK</a>
+                        <a href="#" class="social-link">TG</a>
+                        <a href="#" class="social-link">YT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Auto Rent. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
