@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/redketchup/favicon-16x16.png" type="image/png" sizes="16x16">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
     <style>
         .contacts-hero {
             position: relative;
@@ -349,7 +351,7 @@
                         
                         <div class="form-group">
                             <label for="phone">Телефон *</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                            <input type="tel" id="phone" class="form-control" placeholder="+7 (___) ___-____" required>
                         </div>
                         
                         <div class="form-group">
@@ -370,10 +372,6 @@
                         <button type="submit" class="btn-submit">Отправить сообщение</button>
                     </form>
                 </div>
-            </div>
-
-            <div class="map-container">
-                [Здесь будет карта проезда]
             </div>
         </section>
     </main>
@@ -416,7 +414,82 @@
             this.reset();
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            // Prevent non-numeric input
+            $(document).on('keydown', '#phone', function(e) {
+                // Allow: backspace, delete, tab, escape, enter, decimal point
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: Ctrl+C, Command+C
+                    (e.keyCode === 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: Ctrl+X, Command+X
+                    (e.keyCode === 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // Let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress if not
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+
+            // Initialize inputmask with strict validation
+            $('#phone').inputmask({
+                mask: '+7 (999) 999-9999',
+                placeholder: '_',
+                showMaskOnHover: false,
+                showMaskOnFocus: true,
+                clearIncomplete: true,
+                autoUnmask: true,
+                greedy: false,
+                definitions: {
+                    '9': {
+                        validator: '[0-9]',
+                        cardinality: 1
+                    }
+                },
+                onBeforePaste: function (pastedValue, opts) {
+                    var processedValue = pastedValue.replace(/\D/g,'');
+                    if (processedValue.startsWith('8')) {
+                        processedValue = '7' + processedValue.substring(1);
+                    }
+                    return processedValue;
+                },
+                onBeforeMask: function (value, opts) {
+                    if (value.startsWith('8')) {
+                        return '7' + value.substring(1);
+                    }
+                    return value;
+                },
+                onKeyValidation: function (result) {
+                    if (!result) {
+                        // Add visual feedback for invalid input
+                        $(this).addClass('input-error');
+                        setTimeout(function() {
+                            $(this).removeClass('input-error');
+                        }.bind(this), 500);
+                    }
+                }
+            });
+            
+            // Валидация формы
+            $('#contactForm').on('submit', function(e) {
+                var phone = $('#phone').val();
+                var phoneDigits = phone.replace(/\D/g,'');
+                
+                if (phoneDigits.length !== 11) {
+                    e.preventDefault();
+                    alert('Пожалуйста, введите корректный номер телефона');
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
-```__
