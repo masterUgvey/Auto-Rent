@@ -1178,13 +1178,15 @@ a {
     border-radius: 10px;
     overflow: hidden;
     background: #0a0a0a;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/3;
+    margin-bottom: 20px;
 }
 
 .modal-photo {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #1a1a1a;
     display: block;
 }
 
@@ -1200,18 +1202,14 @@ a {
     width: 80px;
     height: 60px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     opacity: 0.7;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     border: 2px solid transparent;
 }
 
-.car-gallery img:hover,
-.car-gallery img.active {
-    opacity: 1;
-    border-color: var(--accent-blue);
-}
+
 
 .modal-info {
     color: var(--text-light);
@@ -1352,5 +1350,25 @@ a {
         padding: 12px 20px;
         font-size: 0.95rem;
     }
-    }
+}
+
+/* Remove focus outline from buttons and car cards */
+.btn-details:focus,
+.car-card:focus,
+.btn-details:active,
+.car-card:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Add custom focus style for better accessibility */
+.btn-details:focus-visible {
+    outline: 2px solid var(--accent-silver);
+    outline-offset: 2px;
+}
+
+/* Style for when button is clicked/active */
+.btn-details:active {
+    transform: translateY(1px);
+}
 
