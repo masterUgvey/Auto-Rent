@@ -64,7 +64,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: url('images/About.jpg') center/cover no-repeat;
+                background: url('images/Service5.jpg') center/cover no-repeat;
                 z-index: -1;
             ">
                 <div style="
@@ -89,46 +89,90 @@
                         <h2>Наша история</h2>
                         <p>Auto Rent был основан в 2010 году с целью предоставления премиальных автомобилей и сервиса высочайшего уровня. За годы работы мы заслужили репутацию надежного партнера и эксперта в сфере премиального автопроката и сервиса.</p>
                         <p>Наша миссия — сделать аренду автомобиля премиум-класса доступной, удобной и безопасной для каждого клиента.</p>
+                        <p>Мы гордимся тем, что за эти годы помогли тысячам клиентов осуществить их мечты о вождении элитных автомобилей, обеспечивая при этом непревзойденный уровень сервиса и внимания к деталям.</p>
                     </div>
-                    <div class="about-image">
-                        <div class="image-placeholder" style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--accent-blue), #2c5282); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
-                            Изображение автосалона
-                        </div>
+                   <div class="about-image" style="width: 70%;">
+                        <img src="images/salon.jpg" alt="Наш автосалон" loading="lazy" style="width: 100%; height: auto; max-width: 100%;">
                     </div>
                 </div>
+
+                <section class="features" style="margin-top: 40px;">
+                    <div class="container">
+                        <h2 class="section-title">Наши услуги</h2>
+                        <div class="features__grid">
+                            <a href="cars.html" class="feature">
+                                <div class="feature__icon">🚗</div>
+                                <h3 class="feature__title">Аренда премиальных авто</h3>
+                                <p class="feature__text">Широкий выбор автомобилей премиум-класса для любых целей и предпочтений.</p>
+                            </a>
+                            <a href="maintenance.html" class="feature">
+                                <div class="feature__icon">🔧</div>
+                                <h3 class="feature__title">Техническое обслуживание</h3>
+                                <p class="feature__text">Профессиональное обслуживание и ремонт автомобилей премиум-класса.</p>
+                            </a>
+                            <a href="contacts.html" class="feature">
+                                <div class="feature__icon">✨</div>
+                                <h3 class="feature__title">Дополнительные услуги</h3>
+                                <p class="feature__text">Широкий спектр дополнительных услуг для вашего комфорта и удобства.</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
 
                 <div class="team-section" style="margin-top: 100px;">
                     <h2 class="section-title">Наша команда</h2>
                     <div class="team-grid">
-                        <div class="team-member">
+                        <div class="team-member" data-member="alexander">
                             <div class="member-photo">
-                                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #374151, #6b7280); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
-                                    👨‍💼
-                                </div>
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Александр Петров" loading="lazy">
                             </div>
                             <h3>Александр Петров</h3>
                             <p class="position">Генеральный директор</p>
-                            <p class="bio">Опыт работы в автомобильном бизнесе более 15 лет</p>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo">
-                                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #374151, #6b7280); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
-                                    👩‍💼
+                            <div class="member-details" style="display: none;">
+                                <p class="bio">Опыт работы в автомобильном бизнесе более 15 лет. Эксперт в области премиальных автомобилей и клиентского сервиса. Под руководством Александра наша компания вышла на новый уровень качества обслуживания.</p>
+                                <div class="contact-info">
+                                    <p><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</p>
+                                    <p><strong>Email:</strong> a.petrov@autorent.ru</p>
                                 </div>
                             </div>
-                            <h3>Екатерина Смирнова</h3>
-                            <p class="position">Менеджер по продажам</p>
-                            <p class="bio">Поможет подобрать идеальный автомобиль</p>
                         </div>
-                        <div class="team-member">
+                        <div class="team-member" data-member="maria">
                             <div class="member-photo">
-                                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #374151, #6b7280); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
-                                    👨‍🔧
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Мария Иванова" loading="lazy">
+                            </div>
+                            <h3>Мария Иванова</h3>
+                            <p class="position">Менеджер по аренде</p>
+                            <div class="member-details" style="display: none;">
+                                <p class="bio">Более 8 лет опыта работы с клиентами. Поможет подобрать идеальный автомобиль под ваши нужды. Мария знает все о нашем автопарке и всегда предложит оптимальный вариант.</p>
+                                <div class="contact-info">
+                                    <p><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</p>
+                                    <p><strong>Email:</strong> m.ivanova@autorent.ru</p>
                                 </div>
                             </div>
-                            <h3>Дмитрий Иванов</h3>
-                            <p class="position">Главный механик</p>
-                            <p class="bio">Обеспечивает безупречное техническое состояние автопарка</p>
+                        </div>
+                        <div class="team-member" data-member="dmitry">
+                            <div class="member-photo">
+                                <img src="https://randomuser.me/api/portraits/men/29.jpg" alt="Дмитрий Смирнов" loading="lazy">
+                            </div>
+                            <h3>Дмитрий Смирнов</h3>
+                            <p class="position">Технический директор</p>
+                            <div class="member-details" style="display: none;">
+                                <p class="bio">Сертифицированный специалист по обслуживанию премиальных автомобилей с 12-летним стажем. Дмитрий и его команда обеспечивают безупречное техническое состояние каждого автомобиля в нашем парке.</p>
+                                <div class="contact-info">
+                                    <p><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</p>
+                                    <p><strong>Email:</strong> d.smirnov@autorent.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Модальное окно для карточек команды -->
+                <div class="modal-overlay" id="teamModal">
+                    <div class="team-modal">
+                        <button class="close-modal" id="closeModal">&times;</button>
+                        <div class="modal-content" id="modalContent">
+                            <!-- Контент будет добавлен через JavaScript -->
                         </div>
                     </div>
                 </div>
@@ -165,5 +209,103 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('teamModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.getElementById('closeModal');
+            
+            // Функция для получения координат элемента относительно документа
+            function getOffset(el) {
+                const rect = el.getBoundingClientRect();
+                return {
+                    top: rect.top + window.scrollY,
+                    left: rect.left + window.scrollX,
+                    width: rect.width,
+                    height: rect.height
+                };
+            }
+            
+            // Обработчик клика по карточке команды
+            document.querySelectorAll('.team-member').forEach(member => {
+                member.addEventListener('click', (e) => {
+                    // Получаем данные из карточки
+                    const memberPhoto = member.querySelector('img').src;
+                    const memberName = member.querySelector('h3').textContent;
+                    const memberPosition = member.querySelector('.position').textContent;
+                    const memberBio = member.querySelector('.bio').textContent;
+                    const contactInfo = member.querySelector('.contact-info').innerHTML;
+                    
+                    // Получаем позицию и размер карточки
+                    const cardRect = member.getBoundingClientRect();
+                    
+                    // Создаем HTML для модального окна
+                    modalContent.innerHTML = `
+                        <div class="modal-grid">
+                            <div class="modal-photo-container">
+                                <img src="${memberPhoto}" alt="${memberName}" class="modal-photo">
+                            </div>
+                            <div class="modal-info">
+                                <h3>${memberName}</h3>
+                                <p class="modal-position">${memberPosition}</p>
+                                <div class="modal-bio">${memberBio}</div>
+                                <div class="contact-info">${contactInfo}</div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Устанавливаем начальную позицию и размер модального окна
+                    modal.style.display = 'flex';
+                    const modalRect = modal.getBoundingClientRect();
+                    
+                    // Устанавливаем начальную позицию и размер анимации
+                    modal.style.transformOrigin = 'center';
+                    
+                    // Показываем оверлей
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Запускаем анимацию после отрисовки
+                    requestAnimationFrame(() => {
+                        modal.querySelector('.team-modal').style.transform = 'scale(1)';
+                        modal.querySelector('.team-modal').style.opacity = '1';
+                    });
+                });
+            });
+            
+            // Функция закрытия модального окна
+            function closeTeamModal() {
+                const modalBox = modal.querySelector('.team-modal');
+                modalBox.style.transform = 'scale(0.8)';
+                modalBox.style.opacity = '0';
+                
+                // Ждем завершения анимации перед скрытием
+                setTimeout(() => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    modal.style.display = 'none';
+                }, 300);
+            }
+            
+            // Обработчики закрытия
+            closeModal.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeTeamModal();
+            });
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeTeamModal();
+                }
+            });
+            
+            // Закрытие по ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeTeamModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
